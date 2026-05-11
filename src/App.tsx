@@ -157,7 +157,7 @@ export default function App() {
               <h1 className="font-waldenburg text-[36px] sm:text-[40px] md:text-[48px] font-[300] leading-[1.08] text-inverse-ink tracking-[-0.96px] max-w-[900px] text-balance mb-3">
                 {activeItem.title}
               </h1>
-              <p className="text-body-lg md:text-subhead text-inverse-ink-muted mb-8 md:mb-12 max-w-2xl">
+              <p className="text-body-lg md:text-subhead text-inverse-ink-muted mb-8 md:mb-12 max-w-2xl text-balance">
                 {activeItem.subtitle}
               </p>
               

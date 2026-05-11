@@ -135,15 +135,15 @@ export default function App() {
         <div className="flex-1 flex flex-col relative px-6 py-6 md:px-16 md:py-16 h-full overflow-hidden md:overflow-y-auto w-full bg-transparent">
           
           {/* Top Header Row (Logo & Toggle) */}
-          <div className="flex justify-between items-start w-full mb-8 md:mb-24 relative z-10 lg:pl-16 shrink-0">
+          <div className="flex justify-center md:justify-between items-center md:items-start w-full mb-8 md:mb-24 relative z-10 md:pl-16 shrink-0">
              {/* Logo Construction */}
              <div className="flex items-center shrink-0">
-               <img src="/Logo2.png" alt="KUSKOP BLESS Logo" className="h-[40px] md:h-[64px] lg:h-[72px] object-contain object-left" />
+               <img src="/Logo2.png" alt="KUSKOP BLESS Logo" className="h-[40px] md:h-[64px] lg:h-[72px] object-contain object-center md:object-left" />
              </div>
           </div>
           
           {/* Dynamic Hero Content using framer motion for smooth swapping */}
-          <div className="flex-1 flex flex-col justify-center md:justify-start max-w-4xl relative z-10 w-full pl-0 lg:pl-16 min-h-0">
+          <div className="flex-1 flex flex-col justify-center md:justify-start items-center md:items-start max-w-4xl relative z-10 w-full md:pl-16 min-h-0">
             
             <AnimatePresence mode="wait">
               <motion.div
@@ -154,10 +154,10 @@ export default function App() {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="flex flex-col w-full"
             >
-              <h1 className="font-waldenburg text-[36px] sm:text-[40px] md:text-[48px] font-[300] leading-[1.08] text-inverse-ink tracking-[-0.96px] max-w-[900px] text-balance mb-3">
+              <h1 className="font-waldenburg text-[36px] sm:text-[40px] md:text-[48px] font-[300] leading-[1.08] text-inverse-ink tracking-[-0.96px] max-w-[900px] text-balance mb-3 text-center md:text-left">
                 {activeItem.title}
               </h1>
-              <p className="text-body-lg md:text-subhead text-inverse-ink-muted mb-8 md:mb-12 max-w-2xl text-balance">
+              <p className="text-body-lg md:text-subhead text-inverse-ink-muted mb-8 md:mb-12 max-w-2xl text-balance text-center md:text-left">
                 {activeItem.subtitle}
               </p>
               

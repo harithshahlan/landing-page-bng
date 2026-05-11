@@ -36,6 +36,7 @@
 
 @theme {
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-waldenburg: "Waldenburg", sans-serif;
   --color-primary: #0f62fe;
   --color-blue-60: #0043ce;
   --color-blue-80: #002d9c;

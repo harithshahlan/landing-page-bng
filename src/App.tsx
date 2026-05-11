@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, Suspense, lazy, useSyncExternalStore } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import MagicRings from './components/MagicRings';
+
+// Defer loading heavy 3D component until needed (Rule 2.4 Dynamic Imports for Heavy Components)
+const MagicRings = lazy(() => import('./components/MagicRings'));
 
 const menuItems = [
   { 
@@ -35,25 +37,32 @@ const menuItems = [
   },
 ];
 
+function subscribeToResize(callback: () => void) {
+  window.addEventListener('resize', callback, { passive: true });
+  return () => window.removeEventListener('resize', callback);
+}
+
+function getIsMobileSnapshot() {
+  return window.innerWidth < 768;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export default function App() {
-  const [activeItem, setActiveItem] = useState(menuItems[0]);
-  const [isMobile, setIsMobile] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Rule 5.10 Subscribe to Derived State
+  const isMobile = useSyncExternalStore(subscribeToResize, getIsMobileSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const activeItem = menuItems[currentIndex];
 
-  const currentIndex = menuItems.findIndex(i => i.id === activeItem.id);
   const handlePrev = () => {
-    const prevIndex = currentIndex === 0 ? menuItems.length - 1 : currentIndex - 1;
-    setActiveItem(menuItems[prevIndex]);
+    setCurrentIndex(prev => prev === 0 ? menuItems.length - 1 : prev - 1);
   };
   const handleNext = () => {
-    const nextIndex = currentIndex === menuItems.length - 1 ? 0 : currentIndex + 1;
-    setActiveItem(menuItems[nextIndex]);
+    setCurrentIndex(prev => prev === menuItems.length - 1 ? 0 : prev + 1);
   };
 
   return (
@@ -66,29 +75,31 @@ export default function App() {
         
         {/* Magic Rings anchored centrally to act as the primary visual backdrop */}
         <div className="absolute top-[45%] md:top-1/2 left-[50%] md:left-[55%] lg:left-[55%] -translate-x-1/2 -translate-y-1/2 w-[1200px] sm:w-[1400px] md:w-[2000px] lg:w-[2400px] h-[1200px] sm:h-[1400px] md:h-[2000px] lg:h-[2400px] opacity-[0.85] mix-blend-screen pointer-events-none will-change-transform transform-gpu">
-          <MagicRings
-            color="#A855F7"
-            colorTwo="#6366f1"
-            ringCount={6}
-            speed={1.0}
-            attenuation={18}
-            lineThickness={1.0}
-            baseRadius={0.13}
-            radiusStep={0.05}
-            scaleRate={0.1}
-            opacity={0.5}
-            blur={0}
-            noiseAmount={0.1}
-            rotation={isMobile ? 90 : 0}
-            ringGap={1.5}
-            fadeIn={0.7}
-            fadeOut={0.5}
-            followMouse={false}
-            mouseInfluence={0.2}
-            hoverScale={1.2}
-            parallax={0.05}
-            clickBurst={true}
-          />
+          <Suspense fallback={null}>
+            <MagicRings
+              color="#A855F7"
+              colorTwo="#6366f1"
+              ringCount={6}
+              speed={1.0}
+              attenuation={18}
+              lineThickness={1.0}
+              baseRadius={0.13}
+              radiusStep={0.05}
+              scaleRate={0.1}
+              opacity={0.5}
+              blur={0}
+              noiseAmount={0.1}
+              rotation={isMobile ? 90 : 0}
+              ringGap={1.5}
+              fadeIn={0.7}
+              fadeOut={0.5}
+              followMouse={false}
+              mouseInfluence={0.2}
+              hoverScale={1.2}
+              parallax={0.05}
+              clickBurst={true}
+            />
+          </Suspense>
         </div>
       </div>
 
@@ -103,7 +114,7 @@ export default function App() {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setActiveItem(item);
+                    setCurrentIndex(menuItems.findIndex(i => i.id === item.id));
                   }}
                   className={`text-left px-5 py-5 w-full transition-colors outline-none relative ${
                     isActive 
@@ -143,7 +154,7 @@ export default function App() {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="flex flex-col w-full"
             >
-              <h1 className="text-display-lg tracking-tight text-inverse-ink mb-3 drop-shadow-sm" style={{ fontFamily: '"Waldenburg", sans-serif' }}>
+              <h1 className="font-waldenburg text-[36px] sm:text-[40px] md:text-[48px] font-[300] leading-[1.08] text-inverse-ink tracking-[-0.96px] max-w-[900px] text-balance mb-3">
                 {activeItem.title}
               </h1>
               <p className="text-body-lg md:text-subhead text-inverse-ink-muted mb-8 md:mb-12 max-w-2xl">

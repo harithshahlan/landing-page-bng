@@ -195,7 +195,7 @@ export default function MagicRings({
       uniforms.uResolution.value.set(w * effectiveDpr, h * effectiveDpr);
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
     const ro = new ResizeObserver(resize);
     ro.observe(mount);
@@ -213,10 +213,10 @@ export default function MagicRings({
     };
     const onClick = () => { burstRef.current = 1; };
 
-    mount.addEventListener('mousemove', onMouseMove);
-    mount.addEventListener('mouseenter', onMouseEnter);
-    mount.addEventListener('mouseleave', onMouseLeave);
-    mount.addEventListener('click', onClick);
+    mount.addEventListener('mousemove', onMouseMove, { passive: true });
+    mount.addEventListener('mouseenter', onMouseEnter, { passive: true });
+    mount.addEventListener('mouseleave', onMouseLeave, { passive: true });
+    mount.addEventListener('click', onClick, { passive: true });
 
     let frameId: number;
     const animate = (t: number) => {

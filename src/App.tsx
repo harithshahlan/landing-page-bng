@@ -118,7 +118,7 @@ export default function App() {
                   }}
                   className={`text-left px-5 py-5 w-full transition-colors outline-none relative ${
                     isActive 
-                      ? 'bg-canvas text-ink border-y border-transparent z-10' 
+                      ? 'bg-white/[0.08] text-inverse-ink border-y border-white/[0.1] z-10' 
                       : 'bg-transparent text-inverse-ink-muted hover:text-inverse-ink hover:bg-white/[0.04] border-t border-white/[0.05] first:border-t-0'
                   }`}
                 >

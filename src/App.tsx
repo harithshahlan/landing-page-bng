@@ -7,6 +7,8 @@ import { useState, Suspense, lazy, useSyncExternalStore } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+import logoUrl from './assets/Logo2.png';
+
 // Defer loading heavy 3D component until needed (Rule 2.4 Dynamic Imports for Heavy Components)
 const MagicRings = lazy(() => import('./components/MagicRings'));
 
@@ -138,7 +140,7 @@ export default function App() {
           <div className="flex justify-between items-start w-full mb-8 md:mb-24 relative z-10 lg:pl-16 shrink-0">
              {/* Logo Construction */}
              <div className="flex items-center shrink-0">
-               <img src="/Logo2.png" alt="KUSKOP BLESS Logo" className="h-[40px] md:h-[64px] lg:h-[72px] object-contain object-left" />
+               <img src={logoUrl} alt="KUSKOP BLESS Logo" className="h-[40px] md:h-[64px] lg:h-[72px] object-contain object-left" />
              </div>
           </div>
           

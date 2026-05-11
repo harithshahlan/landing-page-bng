@@ -152,7 +152,7 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="flex flex-col w-full"
+              className="flex flex-col w-full items-center md:items-start"
             >
               <h1 className="font-waldenburg text-[36px] sm:text-[40px] md:text-[48px] font-[300] leading-[1.08] text-inverse-ink tracking-[-0.96px] max-w-[900px] text-balance mb-3 text-center md:text-left">
                 {activeItem.title}

@@ -143,7 +143,7 @@ export default function App() {
           </div>
           
           {/* Dynamic Hero Content using framer motion for smooth swapping */}
-          <div className="flex-1 flex flex-col justify-start items-start max-w-4xl relative z-10 w-full pl-0 lg:pl-16 min-h-0">
+          <div className="flex-1 flex flex-col justify-center md:justify-start items-start max-w-4xl relative z-10 w-full pl-0 lg:pl-16 min-h-0">
             
             <AnimatePresence mode="wait">
               <motion.div

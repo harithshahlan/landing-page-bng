@@ -162,7 +162,7 @@ export default function App() {
               </p>
               
               <div>
-                <button className="group bg-primary hover:bg-blue-hover text-inverse-ink text-button py-[12px] px-[16px] inline-flex items-center transition-colors rounded-none outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-inverse-canvas focus:ring-primary shadow-none border border-transparent">
+                <button className="group btn-magic text-inverse-ink text-button py-[12px] px-[16px] inline-flex items-center rounded-none outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-inverse-canvas focus:ring-ring-purple shadow-none border border-transparent">
                    <span>{activeItem.cta}</span>
                    <ArrowRight className="w-4 h-4 ml-4 transform group-hover:translate-x-1.5 transition-transform duration-200 ease-out" strokeWidth={1.5} />
                 </button>

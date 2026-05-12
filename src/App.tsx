@@ -148,7 +148,7 @@ export default function App() {
           <div className="flex-1 flex flex-col justify-center md:justify-start items-start max-w-4xl relative z-10 w-full pl-0 lg:pl-16 min-h-0">
             
             <div className="text-[12px] md:text-[14px] text-inverse-ink-muted/70 -mt-2 md:-mt-6 mb-6 md:mb-10 tracking-wide font-medium">
-              Selamat Datang ke Portal <span className="text-primary font-semibold">BLESS Generasi Baharu</span>
+              Selamat Datang ke Portal <span className="text-ring-purple font-semibold">BLESS Generasi Baharu</span>
             </div>
 
             <AnimatePresence mode="wait">

@@ -118,7 +118,7 @@ export default function App() {
                   onClick={() => {
                     setCurrentIndex(menuItems.findIndex(i => i.id === item.id));
                   }}
-                  className={`text-left px-5 py-5 w-full transition-colors outline-none relative ${
+                  className={`text-left px-5 py-5 w-full transition-colors outline-none relative cursor-pointer ${
                     isActive 
                       ? 'bg-white/[0.08] text-inverse-ink border-y border-white/[0.1] z-10' 
                       : 'bg-transparent text-inverse-ink-muted hover:text-inverse-ink hover:bg-white/[0.04] border-t border-white/[0.05] first:border-t-0'
@@ -148,7 +148,7 @@ export default function App() {
           <div className="flex-1 flex flex-col justify-center md:justify-start items-start max-w-4xl relative z-10 w-full pl-0 lg:pl-16 min-h-0">
             
             <div className="text-[12px] md:text-[14px] text-inverse-ink-muted/70 -mt-4 md:-mt-6 mb-10 md:mb-10 tracking-wide font-medium">
-              Selamat Datang ke Portal <span className="bg-ring-purple-dark/15 text-inverse-ink-muted px-2 py-0.5 rounded-md font-medium inline-block ml-1">BLESS Generasi Baharu</span>
+              Selamat Datang ke Portal <span className="bg-ring-purple-dark/15 text-inverse-ink-muted px-2 py-0.5 font-medium inline-block ml-1">BLESS Generasi Baharu</span>
             </div>
 
             <AnimatePresence mode="wait">

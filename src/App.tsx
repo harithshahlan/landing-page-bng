@@ -147,6 +147,10 @@ export default function App() {
           {/* Dynamic Hero Content using framer motion for smooth swapping */}
           <div className="flex-1 flex flex-col justify-center md:justify-start items-start max-w-4xl relative z-10 w-full pl-0 lg:pl-16 min-h-0">
             
+            <div className="text-[11px] md:text-[13px] text-inverse-ink-muted/70 mb-2 md:mb-4 tracking-[0.15em] uppercase font-medium">
+              Selamat Datang ke Portal BLESS Generasi Baharu
+            </div>
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeItem.id}

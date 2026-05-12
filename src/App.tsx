@@ -134,7 +134,7 @@ export default function App() {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-1 flex flex-col relative px-6 py-6 md:px-16 md:py-10 h-full overflow-hidden md:overflow-y-auto w-full bg-transparent">
+        <div className="flex-1 flex flex-col relative px-6 py-6 md:px-16 md:py-16 h-full overflow-hidden md:overflow-y-auto w-full bg-transparent">
           
           {/* Top Header Row (Logo & Toggle) */}
           <div className="flex justify-between items-start w-full mb-8 md:mb-24 relative z-10 lg:pl-16 shrink-0">

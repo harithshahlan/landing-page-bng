@@ -157,7 +157,7 @@ export default function App() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
               className="flex flex-col w-full"
             >
               <h1 className="font-waldenburg text-[36px] sm:text-[40px] md:text-[48px] font-[300] leading-[1.08] text-inverse-ink tracking-[-0.96px] max-w-[900px] text-balance mb-3">
@@ -191,7 +191,7 @@ export default function App() {
                  initial={{ y: 5, opacity: 0 }}
                  animate={{ y: 0, opacity: 1 }}
                  exit={{ y: -5, opacity: 0 }}
-                 transition={{ duration: 0.2 }}
+                 transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                  className="text-sm font-medium text-white truncate w-full text-center"
                >
                  {activeItem.title}

@@ -137,7 +137,7 @@ export default function App() {
         <div className="flex-1 flex flex-col relative px-6 py-6 md:px-16 md:py-16 h-full overflow-hidden md:overflow-y-auto w-full bg-transparent">
           
           {/* Top Header Row (Logo & Toggle) */}
-          <div className="flex justify-between items-start w-full mb-8 md:mb-24 relative z-10 lg:pl-16 shrink-0">
+          <div className="flex justify-between items-start w-full mb-8 md:mb-20 relative z-10 lg:pl-16 shrink-0">
              {/* Logo Construction */}
              <div className="flex items-center shrink-0">
                <img src={logoUrl} alt="KUSKOP BLESS Logo" className="h-[40px] md:h-[64px] lg:h-[72px] object-contain object-left" />
